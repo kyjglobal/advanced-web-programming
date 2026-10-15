@@ -1,0 +1,193 @@
+.app-shell {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.page-header {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dfe3e8;
+}
+
+.page-header h1 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+}
+
+.page-description {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.student-card {
+  padding: 20px;
+  border: 1px solid #dfe3e8;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.card-header {
+  margin-bottom: 18px;
+}
+
+.card-header h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.student-details {
+  display: grid;
+  gap: 10px;
+  min-height: 92px;
+  margin: 0;
+  padding: 14px 0;
+  border-top: 1px solid #eceff2;
+  border-bottom: 1px solid #eceff2;
+}
+
+.student-details > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.student-details dt {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.student-details dd {
+  margin: 0;
+  color: #1f2937;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.edit-fields {
+  display: grid;
+  gap: 10px;
+  min-height: 92px;
+  padding: 14px 0;
+  border-top: 1px solid #eceff2;
+  border-bottom: 1px solid #eceff2;
+}
+
+.edit-fields label {
+  display: grid;
+  gap: 5px;
+  color: #4b5563;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.edit-fields input {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 9px;
+  border: 1px solid #c7cdd4;
+  border-radius: 4px;
+  color: #1f2937;
+  background: #ffffff;
+  outline: none;
+}
+
+.edit-fields input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.student-card button {
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.student-card button:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.4);
+  outline-offset: 2px;
+}
+
+.student-card button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.apply-button {
+  justify-self: start;
+  color: #ffffff;
+  background: #2563eb;
+}
+
+.apply-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.edit-button,
+.like-button {
+  flex: 1;
+}
+
+.edit-button {
+  color: #374151;
+  border-color: #cfd4da !important;
+  background: #f3f4f6;
+}
+
+.edit-button:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.like-button {
+  color: #1d4ed8;
+  border-color: #93b4ed !important;
+  background: #ffffff;
+}
+
+.like-button:hover {
+  background: #eff6ff;
+}
+
+.like-button.is-liked {
+  color: #9f1239;
+  border-color: #f0a2b7 !important;
+  background: #fff1f2;
+}
+
+@media (max-width: 760px) {
+  .student-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .app-shell {
+    padding: 32px 16px 48px;
+  }
+
+  .student-list {
+    grid-template-columns: 1fr;
+  }
+}
