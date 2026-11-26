@@ -1,0 +1,315 @@
+:root {
+  color-scheme: dark;
+  --board-bg: #0e1013;
+  --board-panel: #181b20;
+  --board-surface: #20242a;
+  --board-hover: #272d34;
+  --board-ink: #f1f4f5;
+  --board-muted: #a7b0bb;
+  --board-line: #363e48;
+  --board-accent: #5cf2ae;
+  --board-accent-hover: #87ffca;
+  --board-accent-ink: #0d251a;
+  --board-danger: #ffb4b0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--board-bg);
+  color: var(--board-ink);
+  font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+body a {
+  color: var(--board-accent);
+  text-underline-offset: 0.2em;
+}
+
+.board-shell, .board-shell * {
+  box-sizing: border-box;
+}
+
+.board-shell {
+  max-width: 58rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+.board-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid var(--board-line);
+  border-radius: 0.75rem;
+  background: var(--board-panel);
+}
+
+.board-header p {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.board-header p::before {
+  width: 0.25rem;
+  height: 1.15rem;
+  border-radius: 999px;
+  background: var(--board-accent);
+  content: "";
+}
+
+.board-header nav, .board-actions, .board-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.board-header nav a:not(.board-primary) {
+  color: var(--board-muted);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.board-header nav a:not(.board-primary):hover {
+  color: var(--board-ink);
+}
+
+.board-panel {
+  min-width: 0;
+  padding: clamp(1rem, 4vw, 2.25rem);
+  border: 1px solid var(--board-line);
+  border-radius: 0.75rem;
+  background: var(--board-panel);
+}
+
+.board-panel h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.65rem, 4vw, 2.15rem);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+.board-shell a:hover {
+  color: var(--board-accent-hover);
+}
+
+.board-shell button, .board-shell input, .board-shell textarea {
+  font: inherit;
+}
+
+.board-shell button, .board-shell .board-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--board-accent);
+  color: var(--board-accent-ink);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.board-shell button:hover:enabled, .board-shell .board-primary:hover {
+  background: var(--board-accent-hover);
+  color: var(--board-accent-ink);
+}
+
+.board-shell button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.board-shell :focus-visible {
+  outline: 2px solid var(--board-accent);
+  outline-offset: 3px;
+}
+
+.board-shell input, .board-shell textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--board-line);
+  border-radius: 0.5rem;
+  background: var(--board-bg);
+  color: var(--board-ink);
+  caret-color: var(--board-accent);
+}
+
+.board-shell textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.board-shell label {
+  font-size: 0.9375rem;
+  font-weight: 650;
+}
+
+.board-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.board-search input {
+  flex: 1 1 12rem;
+  width: auto;
+  min-width: 0;
+  min-height: 2.5rem;
+  padding-inline: 0.9rem;
+  border-radius: 999px;
+}
+
+.board-shell .board-search button {
+  border-color: var(--board-line);
+  background: var(--board-surface);
+  color: var(--board-ink);
+}
+
+.board-shell .board-search button:hover:enabled {
+  background: var(--board-hover);
+  color: var(--board-ink);
+}
+
+.board-table {
+  overflow-x: auto;
+  border: 1px solid var(--board-line);
+  border-radius: 0.65rem;
+}
+
+.board-table table {
+  width: 100%;
+  min-width: 22rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.board-table th, .board-table td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--board-line);
+}
+
+.board-table th {
+  background: var(--board-surface);
+  font-size: 0.875rem;
+}
+
+.board-table td:first-child {
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.board-table td:first-child a {
+  color: var(--board-ink);
+  font-weight: 650;
+}
+
+.board-table td:first-child a:hover {
+  color: var(--board-accent);
+}
+
+.board-table :is(th, td):not(:first-child) {
+  color: var(--board-muted);
+  white-space: nowrap;
+}
+
+.board-table :is(th, td):last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.board-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.board-table tbody tr:hover {
+  background: var(--board-surface);
+}
+
+.board-pagination {
+  justify-content: center;
+  margin-top: 1rem;
+  color: var(--board-muted);
+}
+
+.board-meta, .board-empty, .board-shell [role="status"] {
+  color: var(--board-muted);
+}
+
+.board-empty {
+  margin: 0;
+  padding: 2rem 1rem;
+  border: 1px dashed var(--board-line);
+  border-radius: 0.65rem;
+  background: var(--board-bg);
+  text-align: center;
+}
+
+.board-content {
+  margin-block: 1.25rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.board-actions {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--board-line);
+}
+
+.board-actions [role="alert"] {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.board-shell .board-danger {
+  border-color: #714644;
+  background: #332123;
+  color: var(--board-danger);
+}
+
+.board-shell .board-danger:hover:enabled {
+  background: #48292b;
+  color: var(--board-danger);
+}
+
+.board-shell [role="alert"] {
+  color: var(--board-danger);
+}
+
+@media (max-width: 32rem) {
+  .board-header, .board-panel {
+    padding-inline: 0.85rem;
+  }
+
+  .board-search label {
+    flex-basis: 100%;
+  }
+
+  .board-table table {
+    min-width: 18rem;
+  }
+
+  .board-table th, .board-table td {
+    padding-inline: 0.45rem;
+    font-size: 0.875rem;
+  }
+}
